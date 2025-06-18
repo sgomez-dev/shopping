@@ -1,1 +1,32 @@
-<p>carrito-listar works!</p>
+<div class="mt-3">
+  <h5>Mi Carrito</h5>
+  <hr />
+
+  <div>
+    <table class="table-auto">
+      <thead>
+        <tr>
+          <th>Producto</th>
+          <th>Imagen</th>
+          <th>Precio</th>
+          <th>Cantidad</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          @for(item of listCarrito; track item.producto) {
+          <td>{{ item.producto.nombre }}</td>
+          <img [src]="'/img/' + item.producto.imagen" width="50" height="60" />
+          <td>{{item.producto.precio}}</td>
+          <td>{{item.cantidad}}</td>
+          }
+        </tr>
+        @if(listCarrito.length == 0) {
+        <tr>
+          <td colspan="5">No hay productos</td>
+        </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</div>
